@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backup on Betzy, Fram, Saga and NIRD &mdash; Sigma2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nris.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/nris.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://siteimproveanalytics.com/js/siteanalyze_6036825.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="File transfer" href="file_transfer.html" />
+    <link rel="prev" title="Storage quota" href="quota.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sigma2/NRIS documentation
+              <img src="../_static/NRIS Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Policies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code-of-conduct.html">Code of Conduct</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting help</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/support_line.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/extended_support.html">Extended support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/how_to_write_good_support_requests.html">Writing good support requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/user_communities.html">User communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/qa-sessions.html">Open Question &amp; Answer Sessions for All Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/lost_forgotten_password.html">Lost, expiring or changing passwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/project_leader_support.html">Project leader support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/events.html">Training events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/notes_qa.html">Questions, Answers and Feedbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/videos.html">Training Video Archives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/material.html">Training materials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/opslog.html">Using the status system (opslog)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/applying_account.html">How do I get an account?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/applying_resources.html">Applying for computing and storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/editing_files.html">Editing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_development/guides/vs_code/connect_to_server.html">Connecting to a system with Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/ssh.html">SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/remote-desktop.html">Remote Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/R.html">First R calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nird_archive/user-guide.html">Research data archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nird_toolkit/overview.html">NIRD Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/easydmp-user-documentation.html">EasyDMP User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help/course_resources.html">CRaaS - Course Resources as a Service</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">HPC usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hpc_machines/migration2metacenter.html">Migration to an NRIS HPC machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/responsible-use.html">Using shared resources responsibly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs/overview.html">Running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/tuning-applications.html">Tuning applications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code development and tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code_development/overview.html">Code development and tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/modulescheme.html">Software module scheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/installed_software.html">Installed software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/userinstallsw.html">Installing software as user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/appguides.html">Application guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/licenses.html">Licence and access policies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Files, storage and backup</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nird_lmd.html">NIRD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clusters.html">Storage areas on HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quota.html">Storage quota</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Backup on Betzy, Fram, Saga and NIRD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#betzy-fram-and-saga">Betzy, Fram and Saga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#where-the-backups-are-located">Where the backups are located</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nird/snapshots_lmd.html">Snapshots on NIRD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nird/backup_lmd.html">Backup as a Service on NIRD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="file_transfer.html">File transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing_files.html">Data handling and storage policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Optimizing storage performance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sigma2/NRIS documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Backup on Betzy, Fram, Saga and NIRD</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UNINETTSigma2/documentation/blob/main/files_storage/backup.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backup-on-betzy-fram-saga-and-nird">
+<span id="storage-backup"></span><h1>Backup on Betzy, Fram, Saga and NIRD<a class="headerlink" href="#backup-on-betzy-fram-saga-and-nird" title="Permalink to this headline"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Only home and project folders with enforced quotas are backed up</strong></p>
+<p>Any <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> area using more than 20 GiB or more than 100 000 files is
+not backed up. To have your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> backed up, you need to shrink the
+disk usage below the 20 GiB limit <em>and</em> below 100 000 files <em>and</em>
+<a class="reference internal" href="../getting_help/support_line.html"><span class="doc std std-doc">notify support</span></a>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dusage</span></code> reports that no limits are set, this means that you <strong>do not have disk quotas</strong>
+activated and this means that these folders <strong>are not backed up</strong>.</p>
+</div>
+<section id="betzy-fram-and-saga">
+<h2>Betzy, Fram and Saga<a class="headerlink" href="#betzy-fram-and-saga" title="Permalink to this headline"></a></h2>
+<p>The storage backup on Betzy, Fram and Saga happens in two steps: first as a nightly backup from the
+respective machines over to NIRD, and then NIRD is backed up as described in the NIRD section below.</p>
+<p>The following areas on Betzy, Fram and Saga are backed up nightly to NIRD:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/home</span></code>, excluding <code class="docutils literal notranslate"><span class="pre">$HOME/nobackup</span></code> and <code class="docutils literal notranslate"><span class="pre">$HOME/tmp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/projects</span></code></p></li>
+</ul>
+<p>The following areas are <strong>not backed up</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/share</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/work</span></code></p></li>
+</ul>
+<p>The work area <code class="docutils literal notranslate"><span class="pre">/cluster/work</span></code> also enforces an automatic cleanup strategy, and
+is <strong>not</strong> meant for permanent storage.
+Files in this area will be <strong>deleted</strong> after 42 or 21 days, depending on the storage capacity,
+see <a class="reference internal" href="clusters.html#user-work-area"><span class="std std-ref">User work area</span></a> for details.</p>
+<section id="where-the-backups-are-located">
+<h3>Where the backups are located<a class="headerlink" href="#where-the-backups-are-located" title="Permalink to this headline"></a></h3>
+<p><strong>HOME</strong>: The nightly backups of the <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> areas on Betzy, Fram and Saga end up in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> area on NIRD :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/nird/home/$USER/backups/betzy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/nird/home/$USER/backups/fram</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/nird/home/$USER/backups/saga</span></code></p></li>
+</ul>
+<p>To recover a deleted or overwritten file in <code class="docutils literal notranslate"><span class="pre">/cluster/home/$USER</span></code> on either Betzy, Fram or Saga
+go to your home directory on NIRD, go to the backup folder and then browse in the directory
+corresponding to the HPC system you come from for the file you want to restore.
+You can then use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to transfer a copy to your home directory on the HPC system
+(see also our guide about <a class="reference internal" href="file_transfer.html#file-transfer"><span class="std std-ref">File transfer</span></a>).
+If you have difficulty accessing NIRD, please contact support.</p>
+<p><strong>PROJECTS on Fram and Betzy</strong>: The nnXXXXk project areas on Betzy and Fram
+are backed up to Saga:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/backup/betzy/projects/nnXXXXk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/backup/fram/projects/nnXXXXk</span></code></p></li>
+</ul>
+<p><strong>PROJECTS on Saga</strong>: The nnXXXXk project areas on Saga
+are backed up to Betzy:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/cluster/backup/saga/projects/nnXXXXk</span></code></p></li>
+</ul>
+<p>If you have project access to the cluster where backups are stored, then you
+can retrieve them yourself. If you cannot access the cluster that holds the
+project backups, please contact support and we will help you restoring your
+data.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nird/snapshots_lmd.html">Snapshots on NIRD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nird/backup_lmd.html">Backup as a Service on NIRD</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quota.html" class="btn btn-neutral float-left" title="Storage quota" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="file_transfer.html" class="btn btn-neutral float-right" title="File transfer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sigma2/NRIS. Text shared under CC-BY 4.0 license.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+<!-- Integrate opslog banner -->
+<span class="sp-status"></span>
+<script>
+  window.statuspalWidget = {
+    subdomain: 'sigma2-nris',
+    host: 'https://statuspal.eu',
+    badge: {
+      enabled: false,
+      selector: '.sp-status', 
+    },
+    banner: {
+      enabled: true,
+      position: 'top-right',
+    }
+  }
+</script>
+<script src="https://statuspal.io/js/widget.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backup as a Service on NIRD &mdash; Sigma2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/nris.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/nris.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://siteimproveanalytics.com/js/siteanalyze_6036825.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NIRD mounts on clusters" href="mounts_lmd.html" />
+    <link rel="prev" title="Snapshots on NIRD" href="snapshots_lmd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Sigma2/NRIS documentation
+              <img src="../../_static/NRIS Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Policies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code-of-conduct.html">Code of Conduct</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting help</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/support_line.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/extended_support.html">Extended support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/how_to_write_good_support_requests.html">Writing good support requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/user_communities.html">User communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/qa-sessions.html">Open Question &amp; Answer Sessions for All Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/lost_forgotten_password.html">Lost, expiring or changing passwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/project_leader_support.html">Project leader support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/events.html">Training events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/notes_qa.html">Questions, Answers and Feedbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/videos.html">Training Video Archives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/material.html">Training materials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/opslog.html">Using the status system (opslog)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/applying_account.html">How do I get an account?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/applying_resources.html">Applying for computing and storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/editing_files.html">Editing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_development/guides/vs_code/connect_to_server.html">Connecting to a system with Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/ssh.html">SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/remote-desktop.html">Remote Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/R.html">First R calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nird_archive/user-guide.html">Research data archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nird_toolkit/overview.html">NIRD Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/easydmp-user-documentation.html">EasyDMP User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/course_resources.html">CRaaS - Course Resources as a Service</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">HPC usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hpc_machines/migration2metacenter.html">Migration to an NRIS HPC machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/responsible-use.html">Using shared resources responsibly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jobs/overview.html">Running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/tuning-applications.html">Tuning applications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code development and tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code_development/overview.html">Code development and tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/modulescheme.html">Software module scheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installed_software.html">Installed software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/userinstallsw.html">Installing software as user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/appguides.html">Application guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/licenses.html">Licence and access policies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Files, storage and backup</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../nird_lmd.html">NIRD</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../nird_lmd.html#national-infrastructure-for-research-data">National Infrastructure for Research Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="access_lmd.html">Access and login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage-areas_lmd.html">Storage areas, quota, and backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snapshots_lmd.html">Snapshots on NIRD</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Backup as a Service on NIRD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#excluding-a-specific-file">Excluding a specific file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#excluding-a-directory">Excluding a directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mounts_lmd.html">NIRD mounts on clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts_dl.html">NIRD Tiered Storage and Data Lake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="old_nird_access.html">Access to old NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq_nird.html">Frequently asked questions on NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sharing_files.html">Data handling and storage policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clusters.html">Storage areas on HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quota.html">Storage quota</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup.html">Backup on Betzy, Fram, Saga and NIRD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../file_transfer.html">File transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing_files.html">Data handling and storage policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Optimizing storage performance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sigma2/NRIS documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nird_lmd.html">NIRD</a></li>
+      <li class="breadcrumb-item active">Backup as a Service on NIRD</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UNINETTSigma2/documentation/blob/main/files_storage/nird/backup_lmd.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backup-as-a-service-on-nird">
+<span id="backup-service"></span><h1>Backup as a Service on NIRD<a class="headerlink" href="#backup-as-a-service-on-nird" title="Permalink to this headline"></a></h1>
+<p>NIRD provides backup as a service. NIRD projects on Tiered Storage (NIRD TS)
+can utilise the service for the dataset that needs a higher level of security.
+This will stay during the tenure of the project. The backup service will be
+activated after a mutula agreement with the project leader during the allocation or later.</p>
+<p>The backup is from Tiered Storage (NIRD TS) to Data Lake (NIRD DL).
+There will not be any backup service for the data in the Data Lake.</p>
+<ul class="simple">
+<li><p>Tiered Storage (NIRD TS) path on the system is <code class="docutils literal notranslate"><span class="pre">/nird/projects</span></code></p></li>
+<li><p>Data Lake (NIRD DL) path on the system is <code class="docutils literal notranslate"><span class="pre">/nird/datalake</span></code></p></li>
+</ul>
+<p>We advice projects to assess which of the dataset needs a higher level of
+security and should be backedup.</p>
+<p>In general, one can consider which data can be easily reproduced, and which
+are copies of files stored on other storage resources. These data normally
+do not need backup service.</p>
+<p>The solution for backup for project data stored on NIRD TS,
+is implemented by using a control file.</p>
+<p>The control file is named <code class="docutils literal notranslate"><span class="pre">.replication_exclude</span></code> and must be placed in the
+root of the project directory.
+e.g.: <code class="docutils literal notranslate"><span class="pre">/nird/projects/NS1234K/.replication_exclude</span></code></p>
+<p>To exclude specific files or directories, those shall be listed in the
+<code class="docutils literal notranslate"><span class="pre">.replication_exclude</span></code> control file. Each file or directory which is to be
+excluded from replication, shall be added as a separate line.</p>
+<p>Lines in the <code class="docutils literal notranslate"><span class="pre">.replication_exclude</span></code> control file starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">;</span></code> are
+ignored.</p>
+<section id="excluding-a-specific-file">
+<h2>Excluding a specific file<a class="headerlink" href="#excluding-a-specific-file" title="Permalink to this headline"></a></h2>
+<p>To exclude the <code class="docutils literal notranslate"><span class="pre">/nird/projects/NS1234K/datasets/experiment/tmp_file.nc</span></code> file,
+add <code class="docutils literal notranslate"><span class="pre">/datasets/experiment/tmp_file.nc</span></code> into the <code class="docutils literal notranslate"><span class="pre">.replication_exclude</span></code> control
+file as a line on it’s own.</p>
+</section>
+<section id="excluding-a-directory">
+<h2>Excluding a directory<a class="headerlink" href="#excluding-a-directory" title="Permalink to this headline"></a></h2>
+<p>To exclude the <code class="docutils literal notranslate"><span class="pre">/nird/projects/NS1234K/datasets/non_important/</span></code> directory,
+add <code class="docutils literal notranslate"><span class="pre">/datasets/non_important</span></code> into the <code class="docutils literal notranslate"><span class="pre">.replication_exclude</span></code> control file
+as a line on it’s own.</p>
+<p>Mentions of <code class="docutils literal notranslate"><span class="pre">/datasets</span></code> on its own, would exclude everything in that directory.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="snapshots_lmd.html" class="btn btn-neutral float-left" title="Snapshots on NIRD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mounts_lmd.html" class="btn btn-neutral float-right" title="NIRD mounts on clusters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sigma2/NRIS. Text shared under CC-BY 4.0 license.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+<!-- Integrate opslog banner -->
+<span class="sp-status"></span>
+<script>
+  window.statuspalWidget = {
+    subdomain: 'sigma2-nris',
+    host: 'https://statuspal.eu',
+    badge: {
+      enabled: false,
+      selector: '.sp-status', 
+    },
+    banner: {
+      enabled: true,
+      position: 'top-right',
+    }
+  }
+</script>
+<script src="https://statuspal.io/js/widget.js"></script>
+
+
+</body>
+</html>

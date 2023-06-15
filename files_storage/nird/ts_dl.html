@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIRD Tiered Storage and Data Lake &mdash; Sigma2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/nris.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/nris.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://siteimproveanalytics.com/js/siteanalyze_6036825.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Access to old NIRD" href="old_nird_access.html" />
+    <link rel="prev" title="NIRD mounts on clusters" href="mounts_lmd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Sigma2/NRIS documentation
+              <img src="../../_static/NRIS Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Policies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code-of-conduct.html">Code of Conduct</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting help</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/support_line.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/extended_support.html">Extended support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/how_to_write_good_support_requests.html">Writing good support requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/user_communities.html">User communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/qa-sessions.html">Open Question &amp; Answer Sessions for All Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/lost_forgotten_password.html">Lost, expiring or changing passwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/project_leader_support.html">Project leader support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/events.html">Training events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/notes_qa.html">Questions, Answers and Feedbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/videos.html">Training Video Archives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/material.html">Training materials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/opslog.html">Using the status system (opslog)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/applying_account.html">How do I get an account?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/applying_resources.html">Applying for computing and storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/editing_files.html">Editing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_development/guides/vs_code/connect_to_server.html">Connecting to a system with Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/ssh.html">SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/remote-desktop.html">Remote Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/R.html">First R calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nird_archive/user-guide.html">Research data archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nird_toolkit/overview.html">NIRD Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/easydmp-user-documentation.html">EasyDMP User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_help/course_resources.html">CRaaS - Course Resources as a Service</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">HPC usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hpc_machines/migration2metacenter.html">Migration to an NRIS HPC machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/responsible-use.html">Using shared resources responsibly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jobs/overview.html">Running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/tuning-applications.html">Tuning applications</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code development and tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code_development/overview.html">Code development and tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/modulescheme.html">Software module scheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installed_software.html">Installed software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/userinstallsw.html">Installing software as user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/appguides.html">Application guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/licenses.html">Licence and access policies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Files, storage and backup</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../nird_lmd.html">NIRD</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../nird_lmd.html#national-infrastructure-for-research-data">National Infrastructure for Research Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="access_lmd.html">Access and login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage-areas_lmd.html">Storage areas, quota, and backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snapshots_lmd.html">Snapshots on NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup_lmd.html">Backup as a Service on NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mounts_lmd.html">NIRD mounts on clusters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">NIRD Tiered Storage and Data Lake</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ts-vs-dl-capacity-and-performance">TS vs DL Capacity and Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ts-vs-dl-architecture">TS vs DL Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ts-vs-dl-functionalities">TS vs DL Functionalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ts-vs-dl-filesystems">TS vs DL Filesystems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="old_nird_access.html">Access to old NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq_nird.html">Frequently asked questions on NIRD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sharing_files.html">Data handling and storage policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clusters.html">Storage areas on HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quota.html">Storage quota</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup.html">Backup on Betzy, Fram, Saga and NIRD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../file_transfer.html">File transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing_files.html">Data handling and storage policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Optimizing storage performance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sigma2/NRIS documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nird_lmd.html">NIRD</a></li>
+      <li class="breadcrumb-item active">NIRD Tiered Storage and Data Lake</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UNINETTSigma2/documentation/blob/main/files_storage/nird/ts_dl.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nird-tiered-storage-and-data-lake">
+<h1>NIRD Tiered Storage and Data Lake<a class="headerlink" href="#nird-tiered-storage-and-data-lake" title="Permalink to this headline"></a></h1>
+<p>NIRD consists of two separate storage systems, namely Tiered Storage (NIRD TS) and
+Data Lake (NIRD DL).</p>
+<p>The NIRD TS have several tiers spanned by single filesystem and designed for active
+projects, while NIRD DL has a more flat structure, designed for less active data and
+sharing data across multiple projects and interfacing with external storages.
+Both are based on IBM Elastic Storage System.</p>
+<p>NIRD TS contains building blocks based on:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- ESS 3200 building blocks for NVMe drives
+- ESS 5000 building blocks for NL-SAS drives
+</pre></div>
+</div>
+<p>and the NIRD DL contains building blocks based only on:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- ESS 5000 building blocks for NL-SAS drives
+</pre></div>
+</div>
+<p>Below is the detail information of the difference between TS and DL.</p>
+<section id="ts-vs-dl-capacity-and-performance">
+<h2>TS vs DL Capacity and Performance<a class="headerlink" href="#ts-vs-dl-capacity-and-performance" title="Permalink to this headline"></a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Tiered Storage(TS)</p></th>
+<th class="text-left head"><p>Data Lake(DL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Capacity :</strong> 22 PB</p></td>
+<td class="text-left"><p><strong>Capacity :</strong> 11 PB</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Performance:</strong><br> Up to 400 Gb/s aggregated bandwidth<br> Aggregated I/O throughput ~ 209 GB/s</p></td>
+<td class="text-left"><p><strong>Performance:</strong><br> Up to 200 Gb/s aggregated bandwidth<br> Aggregated I/O throughput ~ 66 GB/s</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ts-vs-dl-architecture">
+<h2>TS vs DL Architecture<a class="headerlink" href="#ts-vs-dl-architecture" title="Permalink to this headline"></a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Tiered Storage(TS)</p></th>
+<th class="text-left head"><p>Data Lake(DL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Performance and capacity tiers<br> Automatic, transparent tiering</p></td>
+<td class="text-left"><p>Flat architecture (no tiers)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Designed for active projects</p></td>
+<td class="text-left"><p>Designed for less active data, data libraries, sharing data across multiple projects and interfacing with external storages</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Data integrity secured by:<br> - Erasure coding<br> - Snapshots <br> - Option for backup</p></td>
+<td class="text-left"><p>Data integrity secured by: <br> - Erasure coding<br> - Snapshots</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ts-vs-dl-functionalities">
+<h2>TS vs DL Functionalities<a class="headerlink" href="#ts-vs-dl-functionalities" title="Permalink to this headline"></a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Tiered Storage(TS)</p></th>
+<th class="text-left head"><p>Data Lake(DL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Protocols: POSIX, GPFS, NFS and SMB(Not yet enabled)</p></td>
+<td class="text-left"><p>Protocols: POSIX, GPFS,S3(To be enabled later in 2023)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>APIs: GPFS, Discover REST API(Initially to be used internally, might be offered for selected projects)</p></td>
+<td class="text-left"><p>APIs: GPFS, S3(To be enabled later in 2023)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Possibilities for:<br> - encrypted projects<br> - file access logs<br> -data insight:metadata harvesting (Initially to be used internally, might be offered for selected projects)</p></td>
+<td class="text-left"><p>RBAC via S3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>ACLs and extended attributes</p></td>
+<td class="text-left"><p>ACLs and extended attributes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ts-vs-dl-filesystems">
+<h2>TS vs DL Filesystems<a class="headerlink" href="#ts-vs-dl-filesystems" title="Permalink to this headline"></a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Tiered Storage(TS)</p></th>
+<th class="text-left head"><p>Data Lake(DL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Project storage <code class="docutils literal notranslate"><span class="pre">/nird/projects</span></code></p></td>
+<td class="text-left"><p>Data Lake project storage <code class="docutils literal notranslate"> <span class="pre">/nird/datalake</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>User’s home <code class="docutils literal notranslate"><span class="pre">/nird/home</span></code></p></td>
+<td class="text-left"><p>Backup for TS</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Primary site for the NIRD Research Data Archive</p></td>
+<td class="text-left"><p>Secondary site for the NIRD Research</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Scratch storage <code class="docutils literal notranslate"><span class="pre">/nird/scratch</span></code> (Available only on NIRD login nodes)</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>NIRD TS(Resource: projects) and NIRD DL (Resource: datalake) will have separate quota
+based on the project allocation. You can see the quota and the current usage by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dusage<span class="w"> </span>-p<span class="w"> </span>NSxxxxK
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">NSxxxxK</span></code> is the ID of the project.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mounts_lmd.html" class="btn btn-neutral float-left" title="NIRD mounts on clusters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="old_nird_access.html" class="btn btn-neutral float-right" title="Access to old NIRD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sigma2/NRIS. Text shared under CC-BY 4.0 license.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+<!-- Integrate opslog banner -->
+<span class="sp-status"></span>
+<script>
+  window.statuspalWidget = {
+    subdomain: 'sigma2-nris',
+    host: 'https://statuspal.eu',
+    badge: {
+      enabled: false,
+      selector: '.sp-status', 
+    },
+    banner: {
+      enabled: true,
+      position: 'top-right',
+    }
+  }
+</script>
+<script src="https://statuspal.io/js/widget.js"></script>
+
+
+</body>
+</html>
